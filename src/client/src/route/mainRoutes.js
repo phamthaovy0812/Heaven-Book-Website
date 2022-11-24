@@ -15,6 +15,7 @@ const mainRoutes = () => {
           <Route path="LogIn" element={<LogIn />} />
           <Route path="SignUp" element={<SignUp />} />
           <Route path="Ranking" element={<Ranking />} />
+            ///dfsdfdsfsdfsd
         </Routes>
       </BrowserRouter>
     </div>
