@@ -4,6 +4,7 @@ import Home from "../pages/home/home";
 import LogIn from "../pages/logIn/logIn";
 import SignUp from "../pages/signUp/signUp";
 import Ranking from "../pages/ranking/ranking";
+import Censor from "../pages/censor/censor";
 
 const mainRoutes = () => {
   return (
@@ -15,7 +16,7 @@ const mainRoutes = () => {
           <Route path="LogIn" element={<LogIn />} />
           <Route path="SignUp" element={<SignUp />} />
           <Route path="Ranking" element={<Ranking />} />
-            ///dfsdfdsfsdfsd
+          <Route path="Censor" element={<Censor />} />
         </Routes>
       </BrowserRouter>
     </div>
