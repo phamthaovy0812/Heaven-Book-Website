@@ -14,22 +14,22 @@ return (
             <div className='Bar' >
                 <ul className='listBar' class='menu'>
                     <li className='itemBar' class='hd_li'>
-                        <a href="#" >HOME</a>
+                        <a href="/home" >HOME</a>
                     </li>
                     <li className='itemBar' class='hd_li'>
-                        <a href="#" >NEWFEED</a>
+                        <a href="/newfeed" >NEWFEED</a>
                     </li>
                     <li className='itemBar' class='hd_li'>
-                        <a href="#" >POST</a>
+                        <a href="/post" >POST</a>
                     </li>
                     <li className='itemBar' class='hd_li'>
-                        <a href="#" >RANKING</a>
+                        <a href="/ranking" >RANKING</a>
                     </li>
                     <li className='itemBar' class='hd_li'>
-                        <a href="#" >SEARCH</a>
+                        <a href="/search" >SEARCH</a>
                     </li>
                     <li className='itemBar' class='hd_li'>
-                        <a href="#" >PROFILE</a>
+                        <a href="/profile" >PROFILE</a>
                     </li>
                     
                 </ul>

@@ -10,6 +10,7 @@ import Search from "../pages/search/search"
 import Profile from "../pages/profile/profile"
 import Newfeed from "../pages/newfeed/newfeed"
 import FullPost from "../pages/fullpost/fullpost"
+import EditProfile from "../pages/profile/editprofile"
 
 const mainRoutes = () => {
   return (
@@ -28,6 +29,7 @@ const mainRoutes = () => {
           <Route path="Profile" element={<Profile/>} />
           <Route path="Newfeed" element={<Newfeed />} />
           <Route path="FullPost" element={<FullPost/>} />
+          <Route path="EditProfile" element={<EditProfile/>} />
         </Routes>
       </BrowserRouter>
     </div>

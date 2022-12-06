@@ -4,6 +4,7 @@ import Header from "../header/header"
 import Footer from "../footer/footer"
 import Item  from '../newfeed/item';
 import ListBook from './search.json';
+import PostSearch from './postsearch';
 
 const Search = () => {
 return (
@@ -14,23 +15,26 @@ return (
             <input class='s_input'></input>
             <button class='s_btn'>Search</button>
         </div>
-        <div class='s_res'>RESULT</div>
-
-        <div className='flex flex-wrap mx-10 '>
-            {
+        
+        <div>
+        {
                 ListBook && ListBook.map((value,index)=>{
                     return (
                         <>
                             {
-                                <div className='flex flex-col w-1/3 justify-center items-center my-10' key={index}>
-                                    <Item value={value}/>
-                                </div>
+                               
+                                <PostSearch value={value}/>
+                              
                             } 
                         </>
                     )
+
+                
                 })
             }
         </div>
+
+      
         <Footer/>
     </div>
 )

@@ -8,7 +8,7 @@ const signUp = () => {
     <div class="bg-white flex  ">
         <BannerSignUp/>
         <div class="flex-1 flex flex-col justify-around">
-            <h1 class="text-secondary-gray text-3xl font-bold pl-24">Đăng nhập</h1>
+            <h1 class="text-secondary-gray text-3xl font-bold pl-24">Đăng ký</h1>
             <FormSignUp/>
             <Button textBtn="Đăng kí"/>    
         </div>
