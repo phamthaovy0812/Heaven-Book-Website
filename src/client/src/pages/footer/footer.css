@@ -1,0 +1,31 @@
+.ft_text{
+    color:  #FF5C00;
+    font-weight: bold ; 
+}
+.footer{
+
+    margin: 0;
+    padding: 50px;
+    background:#373737 ; 
+ 
+}
+
+.ft_kc{
+    color:#373737  ;
+}
+.ft_li{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+   
+}
+
+.ft_imglink{
+    width: 80px;
+    padding: 14px 16px;
+    margin:15px;
+
+}
+

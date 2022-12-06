@@ -1,0 +1,38 @@
+.pf{
+    background:#FCD8C3 ;
+    padding: 30px;
+    padding-left: 50px;
+    margin: 30px;
+    margin-top: 80px;
+
+
+}
+.pf_avata{
+    border-radius: 90px;
+    width: 150px;
+    
+}
+.pf_name{
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    padding-bottom: 20px;
+
+}
+.pf_info{
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+
+}
+.pf_pd{
+    padding-left: 80px;
+}
+
+.pf_dp{
+    display: flex;
+    justify-content: end;
+    margin: 30px;
+   
+    
+}

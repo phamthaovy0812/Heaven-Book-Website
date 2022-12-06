@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+.fatherf{
+  text-align:center;
+}
+
+.sonf{
+  display: inline-block;
+}
+.hdtext{
+  font-size: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #FF5C00;
+  padding-left: 20px;
+  padding-top: 40px;
+}

@@ -1,0 +1,27 @@
+
+.it_pd{
+    padding-top: 15px;
+}
+.image-size{
+    width: 1500px;
+    max-height: 300px;
+}
+.nf_flex
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 40px;
+
+
+}
+.nf_btn{
+    height: 50px;
+    width: 200px;
+    left: 54px;
+    top: 2153px;
+    border-radius:5px;
+    background: #FF6C1A;
+    color: white;
+    font-size: larger;
+}

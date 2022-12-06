@@ -1,0 +1,25 @@
+.er_btn{
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px;
+    width: 100px;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.er_img{
+    width: 990px;
+   
+}
+.error{
+    background: #FADDC2 ;
+    height: 100%;
+    padding: 50px;
+
+}
+.er_text{
+    padding-top: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
