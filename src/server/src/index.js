@@ -11,6 +11,9 @@ const methodOverride = require('method-override')
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Connect DB
+db.connect();
+
 //Middleware
 app.use(
     express.urlencoded({
@@ -21,7 +24,7 @@ app.use(express.json());
 
 //HTTP logger
 app.use(morgan('combined'));
-
+//PUT method
 app.use(methodOverride('_method'))
 
 //Template engine
