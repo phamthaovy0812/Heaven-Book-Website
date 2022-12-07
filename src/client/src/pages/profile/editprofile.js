@@ -1,7 +1,7 @@
 import  React from 'react'
 import './profile.css'
-import Header from "../header/header"
-import Footer from "../footer/footer"
+import Header from "../../layout/header/header"
+import Footer from "../../layout/footer/footer"
 import FormEdit from './editform'
 
 

@@ -1,7 +1,7 @@
 import  React from 'react'
 import './search.css'
-import Header from "../header/header"
-import Footer from "../footer/footer"
+import Header from "../../layout/header/header"
+import Footer from "../../layout/footer/footer"
 
 import ListBook from './search.json';
 import PostSearch from './postsearch';

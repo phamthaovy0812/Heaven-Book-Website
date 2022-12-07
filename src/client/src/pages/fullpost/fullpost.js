@@ -1,7 +1,7 @@
 import React from 'react';
 import './fullpost.css'
-import Header from "../header/header"
-import Footer from "../footer/footer"
+import Header from "../../layout/header/header"
+import Footer from "../../layout/footer/footer"
 const Fullpost = () => {
     return (
         <section>
