@@ -12,8 +12,9 @@ const error = () => {
             </div>
             <div class='fatherf'>
                 <div class='sonf'>
-                    <button class='er_btn'> BACK</button>
-
+                    <a href='/home'>
+                        <button class='er_btn'> BACK</button>
+                    </a>
                 </div>
 
             </div>

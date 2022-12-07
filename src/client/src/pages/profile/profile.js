@@ -21,8 +21,8 @@ return (
                     <div class='pf_info'>Ngày sinh: 11/11/2011</div>
                     <div class='pf_info'>Quê quán: Mặt Trăng</div>
                     <div class='pf_info'>Sử thích cá nhân: thích chơi bong bóng</div>
-                 
-                    <button class='nf_btn mt-6'> Chỉnh sửa thông tin </button>
+                    <a href='/editprofile'> <button class='nf_btn mt-6'> Chỉnh sửa thông tin </button></a>
+                   
                 </div>
             </div>
         </div>

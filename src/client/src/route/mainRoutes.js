@@ -11,6 +11,7 @@ import Profile from "../pages/profile/profile"
 import Newfeed from "../pages/newfeed/newfeed"
 import FullPost from "../pages/fullpost/fullpost"
 import EditProfile from "../pages/profile/editprofile"
+import AfterSearch from "../pages/search/aftersearch";
 
 const mainRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const mainRoutes = () => {
           <Route path="Newfeed" element={<Newfeed />} />
           <Route path="FullPost" element={<FullPost/>} />
           <Route path="EditProfile" element={<EditProfile/>} />
+          <Route path="AfterSearch" element={<AfterSearch/>} />
         </Routes>
       </BrowserRouter>
     </div>

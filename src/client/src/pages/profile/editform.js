@@ -39,8 +39,10 @@ const formEdit = () => {
                     </div>
 
                     <div class='flex justify-center mt-10'>
-                        <button class='s_btn mr-4'>Hủy</button>
-                        <button class='s_btn'>Cập nhật</button>
+                        <a href='/profile'><button class='s_btn mr-4'>Hủy</button></a>
+                       
+                        <a href='/profile'><button class='s_btn'>Cập nhật</button></a>
+                        
                     </div>
                 
                 
