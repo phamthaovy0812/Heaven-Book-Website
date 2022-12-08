@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 
 const formEdit = () => {
@@ -13,14 +14,7 @@ const formEdit = () => {
                         <label class='pf_label '>Tài khoảng:</label>
                         <input class='pf_input'></input>
                     </div>
-                    <div class='flex'>
-                        <label class='pf_label'>Mật khẩu:</label>
-                        <input class='pf_input'></input>
-                    </div>
-                    <div class='flex'>
-                        <label class='pf_label'> Xác nhận mật khẩu:</label>
-                        <input class='pf_input'></input>
-                    </div>
+                   
                     <div class='flex'>
                         <label class='pf_label'>Tên hiển thị:</label>
                         <input class='pf_input'></input>
@@ -39,17 +33,13 @@ const formEdit = () => {
                     </div>
 
                     <div class='flex justify-center mt-10'>
-                        <a href='/profile'><button class='s_btn mr-4'>Hủy</button></a>
+                        <Link to='/profile' ><button class='s_btn mr-4'>Hủy</button></Link>
                        
-                        <a href='/profile'><button class='s_btn'>Cập nhật</button></a>
-                        
+                        <Link to ='/profile'><button class='s_btn'>Cập nhật</button></Link>
+                                              
                     </div>
-                
-                
-                </form>
-
-            </div>
-            
+               </form>
+            </div>            
         </div>
        
     );
