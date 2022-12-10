@@ -10,7 +10,7 @@ const logIn = () => {
             <BannerLogIn/>
             <div>
                 <h1 class="text-secondary-gray text-3xl font-bold pl-24 mt-24 ml-3.5 mb-10">Đăng nhập</h1>
-                <FormLog/>
+                <FormLogIn/>
                
             </div>
 

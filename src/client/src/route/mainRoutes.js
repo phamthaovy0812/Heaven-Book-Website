@@ -9,7 +9,7 @@ import Error from "../pages/error/error";
 import Search from "../pages/search/search"
 import Profile from "../pages/profile/profile"
 import Newfeed from "../pages/newfeed/newfeed"
-import FullPost from "../pages/fullpost/fullpost"
+import FullPost from "../pages/fullpost/fullrv"
 import EditProfile from "../pages/profile/editprofile"
 import AfterSearch from "../pages/search/aftersearch";
 import ForgotPassword from "../pages/forgotpassword/forgotPassword";

@@ -2,7 +2,7 @@ import React from 'react';
 import './fullpost.css'
 import Header from "../../layout/header/header"
 import Footer from "../../layout/footer/footer"
-const Fullpost = () => {
+const Fullpostver1 = () => {
     return (
         <section>
           <Header/>
@@ -36,5 +36,5 @@ Chúng tôi đi xuống phố, tay trong tay, chẳng có gì phải vội. Toto
     );
 };
 
-export default Fullpost;
+export default Fullpostver1;
 
