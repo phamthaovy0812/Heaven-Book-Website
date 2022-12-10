@@ -1,10 +1,11 @@
 import React from 'react';
-import { useRef,useState,useEffect } from 'react' ;
-
-
-
+import { useRef,useState,useEffect,useContext} from 'react' ;
+import AuthContext from "../../context/AuthProvider";
+import axios from '../../api/axios';
+const LOGIN_URL ='/auth';
 const FormLog = () => {
-    const useRef=useRef();
+    const {setAuth}=useContext(AuthContext);
+    const userRef=useRef();
     const errRef=useRef();
 
     const[username,setUsername]=useState('');
@@ -13,7 +14,7 @@ const FormLog = () => {
     const[success,setSuccess]=useState(false);
     
     useEffect(()=>{
-        useRef.current.focus();
+        userRef.current.focus();
 
     },[])
 
@@ -23,13 +24,39 @@ const FormLog = () => {
     
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        console.log(username,password);
-        setPassword('');
-        setSuccess(true);
+        
+        try {
+            const response= await axios.post(LOGIN_URL,JSON.stringify({username,password}),
+            {
+                headers:{'Content-Type':'appllication/json'},
+                withCredentials:true
+            });
+            console.log(JSON.stringify(response?.data));
+            const accessToken =response?.data?.accessToken;
+            const roles=response?.data?.roles;
+            setAuth({username,password,roles,accessToken});
+            setUsername('');
+            setPassword('');
+            setSuccess(true);
+
+        }catch (err){
+            if (!err?.response){
+                setErrMsg('No server response');
+            }else if (err.response?.status ===400){
+                setErrMsg('Missing Username or Password');
+            }else if (err.response?.status===401){
+                setErrMsg('Unauthorized');
+    
+            }else{
+                setErrMsg('Log In false');
+            }
+            errRef.current.focus();
+
+
+        }
+       
     }
    
-   
-     
     return (
         <>
             {success? (
@@ -52,28 +79,28 @@ const FormLog = () => {
                     type="text" 
                     name="username" 
                     id="username" 
-                    ref={useRef} 
+                    ref={userRef} 
                     autoComplete="off" 
                     onChange={(e)=> setUsername(e.target.value)} 
                     value={username}
                     required 
-                    class="bg-amber-50 py-2 w-full mt-1"/>
+                    class="bg-amber-50 py-2 w-full mt-2 mb-2"/>
                     
                 </div>
                 <div>
-                    <label htmlFor="password" class="text-secondary-gray text-lg font-semibold ">Mật khẩu</label>
+                    <label htmlFor="password" class="text-secondary-gray text-lg font-semibold mt-6">Mật khẩu</label>
                    
                     <input 
                     type="password" 
                     name="password" 
                     id="password" 
-                    ref={useRef} 
+                    ref={userRef} 
                     onChange={(e)=> setPassword(e.target.value)} 
                     value={password}
                     required 
-                    class="bg-amber-50 py-2 w-full mt-1"/>
+                    class="bg-amber-50 py-2 w-full mt-2 mb-2"/>
                 </div>
-                <div class="flex text-xs underline-offset-2 ">
+                <div class="flex text-xs underline-offset-2 mt-2">
                     <a href='/forgotpassword' >Quên mật khẩu</a>
                     <p >/</p>
                     <a href='/signup'>Đăng ký</a>
@@ -81,7 +108,7 @@ const FormLog = () => {
                 <p ref={errRef} className={errMsg ? "errmsg":"offscreen"} aria-live="assertive"></p>
                 
                 
-                <a href='/home'> <button class="bg-primary mt-10  text-center w-1/4 mb-16 ml-44 py-2 rounded-md font-bold text-lg text-white">Đăng nhập</button> </a>
+                <a href='/home'> <button class="bg-primary mt-10  text-center w-1/2  py-2 rounded-md font-bold text-lg text-white">Đăng nhập</button> </a>
                
             </div>  
         </form>

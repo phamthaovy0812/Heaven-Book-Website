@@ -1,5 +1,6 @@
 import React from 'react';
 import FormLogIn from "./formLogIn";
+import FormLog from './formloginver2';
 import BannerLogIn from "./bannerLogIn";
 
 
@@ -9,8 +10,7 @@ const logIn = () => {
             <BannerLogIn/>
             <div>
                 <h1 class="text-secondary-gray text-3xl font-bold pl-24 mt-24 ml-3.5 mb-10">Đăng nhập</h1>
-             
-                <FormLogIn/>
+                <FormLog/>
                
             </div>
 
