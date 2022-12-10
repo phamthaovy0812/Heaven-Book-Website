@@ -12,7 +12,6 @@ const logIn = () => {
              
                 <FormLogIn/>
                
-                <a href='/home'> <button class="bg-primary mt-10  text-center w-1/4 mb-16 ml-44 py-2 rounded-md font-bold text-lg text-white">Đăng nhập</button> </a>
             </div>
 
         </div>
