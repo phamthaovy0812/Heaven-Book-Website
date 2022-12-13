@@ -1,26 +1,48 @@
 import React from 'react';
 
 
+
+
 const formLogIn = () => {
+   
      
     return (
+      
+
         <form class=" px-28 ">
             <div >
                 <div>
-                    <label for="username" class="text-secondary-gray text-lg font-semibold">Tài khoản</label>
-                    <input type="text" name="username" class="bg-amber-50 py-2 w-full mt-1"></input>
-                    <span class="text-orange-500 text-xs ">required</span>
+                    <label htmlFor="username" class="text-secondary-gray text-lg font-semibold ">Tài khoảng</label>
+                    <input 
+                    type="text" 
+                    name="username" 
+                    id="username" 
+                 
+                    autoComplete="off" 
+                 
+                    required 
+                    class="bg-amber-50 py-2 w-full mt-2 mb-4"/>
+                    
                 </div>
                 <div>
-                    <label for="password" class="text-secondary-gray text-lg font-semibold ">Mật khẩu</label>
-                    <input type="text" name="password" class="bg-amber-50 py-2 w-full mt-1"></input>
-                    <span class="text-orange-500 text-xs">required</span>
+                    <label htmlFor="password" class="text-secondary-gray text-lg font-semibold mt-6 ">Mật khẩu</label>
+                   
+                    <input 
+                    type="password" 
+                    name="password" 
+                    id="password" 
+
+                    required 
+                    class="bg-amber-50 py-2 w-full mt-2"/>
                 </div>
-                <div class="flex text-xs underline-offset-2 ">
-                    <a href='/src/pages/signUp/signUp.js' >Quên mật khẩu</a>
+                <div class="flex text-xs underline-offset-2 mt-4 ">
+                    <a href='/forgotpassword' >Quên mật khẩu</a>
                     <p >/</p>
-                    <a href='/src/pages/signUp/signUp.js' >Đăng ký</a>
+                    <a href='/signup'>Đăng ký</a>
                 </div>
+              
+                
+                <a href='/home'> <button class="bg-primary w-1/2  text-center mt-4 py-2 rounded-md font-bold text-lg text-white">Đăng nhập</button> </a>
                
             </div>  
         </form>

@@ -35,7 +35,7 @@ return (
                 </ul>
             </div>
             <div>
-                <button className='btntoLogin' class='hd_btn'>Đăng nhập/Đăng ký</button>
+                <button className='btntoLogin' class='hd_btn'><a href='/login'>Đăng nhập</a>/<a href='signup'>Đăng ký</a></button>
             </div>
         
            

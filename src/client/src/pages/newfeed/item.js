@@ -28,7 +28,10 @@ export const Item=({value})=>{
                 </div>
             </div>
             <div className='bg-primary w-52 py-2 hover:bg-primary-600 cursor-pointer'>
-                <h2 className='text-center text-white font-semibold '>Xem thêm</h2>
+                <a href='/fullpost'>
+                    <h2 className='text-center text-white font-semibold '>Xem thêm</h2>
+                </a>
+                
             </div>
         </>
     )

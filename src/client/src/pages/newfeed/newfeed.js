@@ -1,6 +1,6 @@
  import  React from 'react'
-import Header from "../header/header"
-import Footer from "../footer/footer"
+ import Header from "../../layout/header/header"
+ import Footer from "../../layout/footer/footer"
 import './newfeed.css'
 import ListBook from './book.json';
 import Item  from './item';
