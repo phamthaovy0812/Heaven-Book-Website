@@ -5,12 +5,9 @@ const slug = require('mongoose-slug-generator');
 mongoose.plugin(slug);
 
 const Account = new Schema({
-  username: { type: String, required: true },
-  password: { type: String, required: true},
-  profile_name: { type: String, maxLength: 255 },
-  phonenumber: { type: String, maxLength: 255},
-  email: { type: String, maxLength: 255},
-  type: { type: String }, 
+  id: {type: String, require: true},
+  username: {type: String, require: true, unique: true},
+  password: {type: String, require: true},
 }, {
   timestamps: true,
 });

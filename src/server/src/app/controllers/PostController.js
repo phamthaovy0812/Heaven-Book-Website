@@ -1,41 +1,45 @@
 const { response } = require('express')
 const Post = require('../models/Post')
+const { mongooseToObject } = require('../../util/mongoose');
 
+import uuid from 'uuid/v1';
 
-const index = (req,res,next) =>{
-    Post.find()
-    .then(response => {
-        res.json({
-            response
-        })
-    })
-    .catch(error =>{
-        res.json({
-            message: 'Error occured'
-        })
-    })
+const showCreate = (req, res, next) =>{
+    res.render('') //create view
+}
+const showUpdate = (req, res, next) =>{
+    res.render('') //update view
 }
 
-const show = (req, res, next) =>{
-    let postId = req.body.postId
-    Post.findById(postId)
-    .then(response =>{
-        res.json({
-            response
-        })
-    })
-    .catch(error => {
-        res.json({
-            message: 'Error occured'
-        })
-    })
+//getListPost
+const getListPost = (req, res, next) => {
+    Post.find({})
+        .then(post => res.render(''/*view url*/, {
+            post: multipleMongooseToObject(post)
+        }))
+        .catch(next)
 }
 
-const store = (req, res, next) =>{
+//getPost
+const getPost = (req, res, next) => {
+    Post.findOne({id: req.body.id})
+        .then(post => {
+            res.json({post: mongooseToObject(post)})
+        })
+        .catch(next)
+}
+//createNewPost
+const createPost = (req, res, next) =>{
     let post = new Post({
-        text: req.body.text,
+        id: uuid(),
+        status: true,
+        title: req.body.title,
         img: req.body.img,
-        category: req.body.category
+        author: req.body.author,
+        category: req.body.category,
+        description: req.body.description,
+        content: req.body.content,
+
     })
     post.save()
     .then(response =>{
@@ -49,14 +53,17 @@ const store = (req, res, next) =>{
         })
     })
 }
-
-const update = (req, res, next) =>{
+//PUT method to update
+const updatePost = (req, res, next) =>{
     let postID = req.body.postId
 
     let updateData = {
-        text: req.body.text,
+        title: req.body.title,
         img: req.body.img,
-        category: req.body.category
+        author: req.body.author,
+        category: req.body.category,
+        description: req.body.description,
+        content: req.body.content,
     }
 
     Post.findByIdAndUpdate(postId,{$set: updateData})
@@ -87,5 +94,5 @@ const destroy = (req, res, next) =>{
     })
 }
 module.exports ={
-    index, show, store, update, destroy
+    getPost, getListPost, createPost, updatePost, destroy, showCreate, showUpdate
 }
