@@ -32,7 +32,6 @@ const getPost = (req, res, next) => {
 const createPost = (req, res, next) =>{
     let post = new Post({
         id: uuid(),
-        status: true,
         title: req.body.title,
         img: req.body.img,
         author: req.body.author,
