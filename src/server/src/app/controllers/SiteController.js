@@ -16,8 +16,8 @@ class SiteController {
     }
 
     //GET /register
-    register(req, res) {
-        res.render('register');
+    signup(req, res) {
+        res.render('signup');
     }
 }
 
