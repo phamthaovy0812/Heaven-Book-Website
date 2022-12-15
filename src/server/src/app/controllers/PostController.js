@@ -2,7 +2,8 @@ const { response } = require('express')
 const Post = require('../models/Post')
 const { mongooseToObject } = require('../../util/mongoose');
 
-import uuid from 'uuid/v1';
+
+const uuid = require('uuid')
 
 const showCreate = (req, res, next) =>{
     res.render('') //create view
@@ -30,8 +31,9 @@ const getPost = (req, res, next) => {
 }
 //createNewPost
 const createPost = (req, res, next) =>{
+    
     let post = new Post({
-        id: uuid(),
+        id:uuid.v1() ,
         title: req.body.title,
         img: req.body.img,
         author: req.body.author,
