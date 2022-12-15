@@ -11,12 +11,12 @@ class SiteController {
     }
 
     //GET /login
-    login(req, res) {
+    loginGet(req, res) {
         res.render('login');
     }
 
-    //GET /register
-    signup(req, res) {
+    //GET /signup
+    signupGet(req, res) {
         res.render('signup');
     }
 }

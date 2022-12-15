@@ -6,7 +6,7 @@ const SiteController = require('../app/controllers/SiteController')
 
 router.get('/', SiteController.home)
 
-router.get('/login', SiteController.login)
-router.get('/signup', SiteController.signup)
+router.get('/login', SiteController.loginGet)
+router.get('/signup', SiteController.signupGet)
 
 module.exports = router
