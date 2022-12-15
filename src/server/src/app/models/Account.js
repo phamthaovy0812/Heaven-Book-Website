@@ -12,4 +12,6 @@ const Account = new Schema({
   timestamps: true,
 });
 
-module.exports = mongoose.model("Account", Course);
+const collection = new mongoose.model("Collection", Account)
+
+module.exports = collection
