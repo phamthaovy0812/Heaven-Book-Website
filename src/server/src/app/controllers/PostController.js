@@ -3,7 +3,7 @@ const Post = require('../models/Post')
 const { mongooseToObject } = require('../../util/mongoose');
 
 
-const uuid = require('uuid')
+
 
 const showCreate = (req, res, next) =>{
     res.render('') //create view
@@ -15,7 +15,7 @@ const showUpdate = (req, res, next) =>{
 //getListPost
 const getListPost = (req, res, next) => {
     Post.find({})
-        .then(post => res.render(''/*view url*/, {
+        .then(post => res.render('home', {
             post: multipleMongooseToObject(post)
         }))
         .catch(next)
@@ -33,7 +33,7 @@ const getPost = (req, res, next) => {
 const createPost = (req, res, next) =>{
     
     let post = new Post({
-        id:uuid.v1() ,
+        id: null,
         title: req.body.title,
         img: req.body.img,
         author: req.body.author,
