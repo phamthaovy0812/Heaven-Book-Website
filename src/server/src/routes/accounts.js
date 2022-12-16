@@ -7,6 +7,9 @@ const SiteController = require('../app/controllers/SiteController')
 router.get('/', SiteController.home)
 
 router.get('/login', SiteController.loginGet)
+router.post('/login', SiteController.loginPost)
+
 router.get('/signup', SiteController.signupGet)
+router.post('/signup', SiteController.signupPost)
 
 module.exports = router

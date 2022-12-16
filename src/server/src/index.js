@@ -8,6 +8,7 @@ const route = require('./routes');
 const db = require('./config/mongodb');
 const methodOverride = require('method-override');
 const { rmSync } = require('fs');
+const collection = require('./app/models/Account');
 
 
 app.use(express.static(path.join(__dirname, 'public')));
