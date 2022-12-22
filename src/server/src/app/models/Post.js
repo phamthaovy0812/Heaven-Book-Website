@@ -5,7 +5,6 @@ const slug = require('mongoose-slug-generator');
 mongoose.plugin(slug);
 
 const Post = new Schema({
-  id: {type: String, required: true, unique: true},
   status: {type: Boolean, required: true},
   title: {type: String, required: true},
   img: {type: String, required: true},

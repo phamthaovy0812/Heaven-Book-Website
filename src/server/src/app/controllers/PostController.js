@@ -1,99 +1,84 @@
 const { response } = require('express')
 const Post = require('../models/Post')
-const { mongooseToObject } = require('../../util/mongoose');
 
 
 
 
-const showCreate = (req, res, next) =>{
-    res.render('') //create view
-}
-const showUpdate = (req, res, next) =>{
-    res.render('') //update view
-}
 
-//getListPost
-const getListPost = (req, res, next) => {
-    Post.find({})
-        .then(post => res.render('home', {
-            post: multipleMongooseToObject(post)
-        }))
-        .catch(next)
+//get All Post
+const getAll = async (req, res) => {
+    try{
+        const data = await Post.find();
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
 }
 
-//getPost
-const getPost = (req, res, next) => {
-    Post.findOne({id: req.body.id})
-        .then(post => {
-            res.json({post: mongooseToObject(post)})
-        })
-        .catch(next)
+//get One post
+const getOne = async (req,res) =>{
+    try{
+        const data = await Post.findById(req.params.id);
+        res.json(data)
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
 }
-//createNewPost
-const createPost = (req, res, next) =>{
+
+// Create Post
+const createPost = async (req, res) =>{
     
     let post = new Post({
-        id: null,
+        status: req.body.status,
         title: req.body.title,
         img: req.body.img,
         author: req.body.author,
         category: req.body.category,
         description: req.body.description,
         content: req.body.content,
-
     })
-    post.save()
-    .then(response =>{
-        res.json({
-            message: 'Added successfully'
-        })
-    })
-    .catch(error => {
-        res.json({
-            message: 'Error occured'
-        })
-    })
-}
-//PUT method to update
-const updatePost = (req, res, next) =>{
-    let postID = req.body.postId
-
-    let updateData = {
-        title: req.body.title,
-        img: req.body.img,
-        author: req.body.author,
-        category: req.body.category,
-        description: req.body.description,
-        content: req.body.content,
+    try{
+        const dataToSave = await post.save();
+        res.status(200).json(dataToSave)
     }
+    catch(error)  {
+        res.status(400).json({message: error.message})
+    }
+}
+//Update Post
+const updatePost = async (req, res) =>{
+    try {
 
-    Post.findByIdAndUpdate(postId,{$set: updateData})
-    .then(() =>{
-        res.json({
-            message: 'updated successfully'
-        })
-    })
-    .catch(error => {
-        res.json({
-            message: 'Error occured'
-        })
-    })
+        const title = req.body.title;
+        const img = req.body.img;
+        const author = req.body.author;
+        const category = req.body.category;
+        const description = req.body.description;
+        const content = req.body.content;
+
+        const result = await Post.findByIdAndUpdate(
+            title, img, author, category, description, content
+        )
+
+        res.send(result)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 }
 
-const destroy = (req, res, next) =>{
-    let postID = req.body.postId
-    Post.findOneAndRemove(postID)
-    .then(() =>{
-        res.json({
-            message: 'deleted successfully'
-        })
-    })
-    .catch(error => {
-        res.json({
-            message: 'Error occured'
-        })
-    })
+const destroy = async (req, res) =>{
+    try {
+        const id = req.params.id;
+        const data = await Post.findByIdAndDelete(id)
+        res.send(`Document with ${data.name} has been deleted..`)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
 }
 module.exports ={
-    getPost, getListPost, createPost, updatePost, destroy, showCreate, showUpdate
+    getAll, createPost, getOne, updatePost, destroy
 }
