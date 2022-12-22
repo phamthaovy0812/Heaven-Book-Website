@@ -1,11 +1,40 @@
 const { response } = require('express')
 const Post = require('../models/Post')
 
+// get by title
+const getTitle = async(req, res) =>{
+    try {
+        const data = await Post.find({ title: req.body.title });
+        res.json(data)
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}
 
+// get by categories
+const getCategories = async(req, res) =>{
+    try {
+        const data = await Post.find({ categories: req.params.categories });
+        res.json(data)
+    } 
+    catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}
 
+// get by status
+const getStatus = async(req,res) => {
+    try {
+        const data = await Post.find({ status: { $in: [true, false] } });
+        res.json(data)
+      }
+      catch (error) {
+        res.status(500).json({message: error.message});
+    }
+}
 
-
-//get All Post
+// get all posts
 const getAll = async (req, res) => {
     try{
         const data = await Post.find();
@@ -16,7 +45,7 @@ const getAll = async (req, res) => {
     }
 }
 
-//get One post
+// get one post
 const getOne = async (req,res) =>{
     try{
         const data = await Post.findById(req.params.id);
@@ -51,15 +80,16 @@ const createPost = async (req, res) =>{
 const updatePost = async (req, res) =>{
     try {
 
-        const title = req.body.title;
-        const img = req.body.img;
-        const author = req.body.author;
-        const category = req.body.category;
-        const description = req.body.description;
-        const content = req.body.content;
-
         const result = await Post.findByIdAndUpdate(
-            title, img, author, category, description, content
+            req.params.id, {
+                title: req.body.title,
+                status: req.body.status,
+                img: req.body.img,
+                author: req.body.author,
+                category: req.body.category,
+                description: req.body.description,
+                content: req.body.content,
+              }
         )
 
         res.send(result)
@@ -80,5 +110,5 @@ const destroy = async (req, res) =>{
     }
 }
 module.exports ={
-    getAll, createPost, getOne, updatePost, destroy
+    getAll, createPost, getOne, updatePost, destroy, getTitle, getCategories, getStatus
 }
