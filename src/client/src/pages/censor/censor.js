@@ -1,11 +1,15 @@
 import { useState } from "react";
 import SearchBarCategory from "../../components/searchBarCategory";
+import ListBook from "./listBook";
+import Header from '../../layout/header/header';
+import Footer from '../../layout/footer/footer';
 
 const Censor=()=>{
     const [displayPage, setDisplayPage] = useState(0);
     
     return(
         <div>
+            <Header/>
                 <img alt="Thumbnail" src={require("../../assets/banner_ranking.png")} class="w-screen " />
                 <h1 className='text-primary font-bold  text-3xl text-center my-10 underline'>KIỂM DUYỆT BÀI VIẾT</h1>
                 <div className="px-20">
@@ -25,6 +29,12 @@ const Censor=()=>{
                         Đã kiểm duyệt
                     </button>
                 </div>
+                {
+                  
+                        <ListBook status={displayPage}/>
+                   
+                }
+                <Footer/>
         </div>
     )
 }
