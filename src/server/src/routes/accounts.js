@@ -6,6 +6,8 @@ const SiteController = require('../app/controllers/SiteController')
 
 router.get('/', SiteController.home)
 
+router.get('/account', SiteController.getAll)
+
 router.get('/login', SiteController.loginGet)
 router.post('/login', SiteController.loginPost)
 

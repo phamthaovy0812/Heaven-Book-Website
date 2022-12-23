@@ -7,7 +7,12 @@ mongoose.plugin(slug);
 const Account = new Schema({
   id: {type: String, require: true},
   username: {type: String, require: true, unique: true},
-  password: {type: String, require: true},
+  password: {type: String},
+  lastName: {type: String},
+  firstName: {type: String},
+  email: {type: String, require: true, unique: true},
+  listIdPosted: {type: Array},
+  listPostReact: {type: Array},
 }, {
   timestamps: true,
 });

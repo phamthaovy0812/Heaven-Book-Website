@@ -5,6 +5,14 @@ const { multipleMongooseToObject } = require('../../util/mongoose');
 
 class SiteController {
 
+    //GET /getall
+    getAll(req, res) {
+        collection.find({}, function(err, collections) {
+            if(!err) res.json(collections);
+            else res.status(400).json({ error: 'ERROR'});
+        });
+    }
+    
     //GET '/'
     home(req, res, next) {
         res.render('home')
@@ -40,7 +48,7 @@ class SiteController {
 
     //POST /signup
     async signupPost(req, res) {
-        const { username, password } = req.body
+        const { username, password, lastName, firstName, email } = req.body
 
         if (!username || typeof username !== 'string') res.render('signup')
 
@@ -49,7 +57,10 @@ class SiteController {
         try {
             const data =  {
                 username,
-                password
+                password,
+                lastName,
+                firstName,
+                email
             }
             await collection.insertMany([data])
             console.log(data)
