@@ -15,7 +15,7 @@ class SiteController {
     
     //GET '/update'
     updateInfoGet(req, res) {
-        res.render('update');
+        res.render('updateInfo');
     }
 
     //POST '/update'
@@ -99,6 +99,11 @@ class SiteController {
                 res.status(400).json({message: "Email has been used!"})
             }
         }
+    }
+
+    //GET /change : change password
+    changeGet(req, res) {
+        res.render('changePassword');
     }
 
 
