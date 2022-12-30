@@ -42,7 +42,6 @@ app.set('views', path.join(__dirname, 'resources', 'views'));
 
 console.log(__dirname)
 
-
 route(app);
 
 app.listen(port, () => {

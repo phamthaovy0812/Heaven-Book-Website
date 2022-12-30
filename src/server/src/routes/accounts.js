@@ -8,6 +8,9 @@ router.get('/', SiteController.home)
 
 router.get('/account', SiteController.getAll)
 
+router.get('/update', SiteController.updateInfoGet)
+router.post('/update', SiteController.updateInfoPost)
+
 router.get('/login', SiteController.loginGet)
 router.post('/login', SiteController.loginPost)
 

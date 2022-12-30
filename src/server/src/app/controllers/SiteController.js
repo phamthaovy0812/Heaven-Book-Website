@@ -9,10 +9,31 @@ class SiteController {
     getAll(req, res) {
         collection.find({}, function(err, collections) {
             if(!err) res.json(collections);
-            else res.status(400).json({ error: 'ERROR'});
+            else res.status(400).json({ error: 'Fail to get account list'});
         });
     }
     
+    //GET '/update'
+    updateInfoGet(req, res) {
+        res.render('update');
+    }
+
+    //POST '/update'
+    async updateInfoPost(req, res) {
+        try{
+            const check = await collection.findOne({username: req.body.username}).lean()
+    
+            if(!check) res.send("Username does not exist")
+            else {
+                console.log(check.id)
+                res.render('home')
+            }
+        }
+        catch (error) {
+            res.send("Wrong detail")
+        }
+    }
+
     //GET '/'
     home(req, res, next) {
         res.render('home')
@@ -27,16 +48,18 @@ class SiteController {
     async loginPost(req, res) {
         try{
             const check = await collection.findOne({username: req.body.username}).lean()
-    
-            if(!check) res.send("Username does not exist")
+            
+            if(!check) res.status(400).json({ message: "Username does not exist!" })
             else {
                 console.log(req.body)
-                if(check.password === req.body.password) res.render('home')
-                else res.send("Wrong password")
+                if(check.password === req.body.password) {
+                    res.status(200).json({check, message: "Login success!"})
+                }
+                else res.status(400).json({ message: "Wrong password!" })
             }
         }
         catch (error) {
-            res.send("Wrong detial")
+            res.status(400).json({ message: "Wrong detail!" })
         }
     }
 
@@ -50,9 +73,9 @@ class SiteController {
     async signupPost(req, res) {
         const { username, password, lastName, firstName, email } = req.body
 
-        if (!username || typeof username !== 'string') res.render('signup')
+        if (!username || typeof username !== 'string') res.status(400).json({message: "Empty username!"})
 
-        if (!password || typeof password !== 'string') res.render('signup')
+        if (!password || typeof password !== 'string') res.status(400).json({message: "Empty password!"})
         
         try {
             const data =  {
@@ -62,12 +85,19 @@ class SiteController {
                 firstName,
                 email
             }
-            await collection.insertMany([data])
-            console.log(data)
-            res.render('login')
+            
+            const check = await collection.findOne({username: req.body.username}).lean()
+            
+            if(check) res.status(400).json({ message: "Username has been used!" })
+            else {
+                await collection.insertMany([data])
+                res.status(200).json({data, message: "Signup success!"})
+            }
         }
         catch(error) {
-            if(error.code === 11000) res.render('signup')
+            if(error.code === 11000) {
+                res.status(400).json({message: "Email has been used!"})
+            }
         }
     }
 
