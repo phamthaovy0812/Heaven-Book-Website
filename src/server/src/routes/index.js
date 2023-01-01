@@ -3,7 +3,7 @@ const siteRouter = require('./accounts')
 
 
 function route(app) {    
-    app.use('/', siteRouter);
+    app.use('/account', siteRouter);
     app.use('/post', postRouter);
 }
 

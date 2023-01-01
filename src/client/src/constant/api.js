@@ -1,6 +1,25 @@
-const api = "https://epls-backend-production-7107.up.railway.app/"
-const postApi = "api/post";
-const accountApi = "api/account";
+const api = "http://localhost:3000";
 
-export { api, postApi, accountApi };
-  
+const account = "/account";
+const accountId = "/:id";
+const changePassword = "/changePassword";
+const updateInfo = "/updateInfo";
+const login = "/login";
+const signup = "/signup";
+
+const post = "/post";
+const postId = "/:id";
+const postTitle = "/title";
+
+export {
+  api,
+  account,
+  accountId,
+  changePassword,
+  updateInfo,
+  login,
+  signup,
+  post,
+  postId,
+  postTitle,
+};

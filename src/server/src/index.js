@@ -8,6 +8,7 @@ const route = require('./routes');
 const db = require('./config/mongodb');
 const methodOverride = require('method-override');
 const { rmSync } = require('fs');
+const cors = require('cors')
 const collection = require('./app/models/Account');
 
 
@@ -23,7 +24,7 @@ app.use(
     }),
 );
 app.use(express.json());
-
+app.use(cors())
 //HTTP logger
 app.use(morgan('combined'));
 //PUT method

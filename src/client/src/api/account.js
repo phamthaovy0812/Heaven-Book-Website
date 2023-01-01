@@ -1,24 +1,25 @@
 import axios from 'axios';
-import { api, accountApi } from '../constant/api';
+import { api, account,signup } from '../constant/api';
 
-const getAllAccount=()=>{
-    axios.get(`${api}${accountApi}`)
-    .then((res)=>{
-        console.log(res.data)
-    })
-    .catch((err)=>{
-        console.log("err : ",err)
-    })
-}
+// const getAllAccount=()=>{
+//     axios.get(`${api}${accountApi}`)
+//     .then((res)=>{
+//         console.log(res.data)
+//     })
+//     .catch((err)=>{
+//         console.log("err : ",err)
+//     })
+// }
 
 const createAccount=(data)=>{
-    axios.post(`${api}${accountApi}`,data)
+    console.log(`${api}${account}${signup}`)
+    axios.post(`${api}${account}${signup}`,data)
     .then((res)=>{
-        console.log(res)
+        console.log(res);
     })
     .catch((err)=>{
         console.log("err : ",err)
     })
 }
 
-export { getAllAccount, createAccount };
+export {  createAccount };

@@ -1,24 +1,16 @@
-const express = require('express');
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const SiteController = require('../app/controllers/SiteController')
+const SiteController = require("../app/controllers/SiteController");
 
+//router.get('/', SiteController.home)
 
-router.get('/', SiteController.home)
+router.get("/", SiteController.getAll);
+router.get("/:id", SiteController.getOne);
+router.post("/changePassword", SiteController.changePost);
+router.post("/updateInfo", SiteController.updateInfoGet);
 
-router.get('/account', SiteController.getAll)
-router.get('/account/:id', SiteController.getOne)
+router.post("/login", SiteController.loginPost);
+router.post("/signup", SiteController.signupPost);
 
-router.get('/change', SiteController.changeGet)
-router.post('/change', SiteController.changePost)
-
-router.get('/update', SiteController.updateInfoGet)
-router.post('/update', SiteController.updateInfoPost)
-
-router.get('/login', SiteController.loginGet)
-router.post('/login', SiteController.loginPost)
-
-router.get('/signup', SiteController.signupGet)
-router.post('/signup', SiteController.signupPost)
-
-module.exports = router
+module.exports = router;
