@@ -12,6 +12,11 @@ const formForgotPassword = () => {
                     <span class="text-orange-500 text-xs ">required</span>
                 </div>
                 <div>
+                    <label for="password" class="text-secondary-gray text-lg font-semibold ">Mật khẩu cũ</label>
+                    <input type="text" name="password" class="bg-amber-50 py-2 w-full mt-1"></input>
+                    <span class="text-orange-500 text-xs">required</span>
+                </div>
+                <div>
                     <label for="password" class="text-secondary-gray text-lg font-semibold ">Mật khẩu mới</label>
                     <input type="text" name="password" class="bg-amber-50 py-2 w-full mt-1"></input>
                     <span class="text-orange-500 text-xs">required</span>
