@@ -7,8 +7,10 @@ const SiteController = require('../app/controllers/SiteController')
 router.get('/', SiteController.home)
 
 router.get('/account', SiteController.getAll)
+router.get('/account/:id', SiteController.getOne)
 
 router.get('/change', SiteController.changeGet)
+router.post('/change', SiteController.changePost)
 
 router.get('/update', SiteController.updateInfoGet)
 router.post('/update', SiteController.updateInfoPost)

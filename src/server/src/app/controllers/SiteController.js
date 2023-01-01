@@ -2,17 +2,65 @@ const Course = require('../models/Account');
 const collection = require('../models/Account')
 
 const { multipleMongooseToObject } = require('../../util/mongoose'); 
+const { estimatedDocumentCount } = require('../models/Post');
 
 class SiteController {
+    
+    //GET '/'
+    home(req, res, next) {
+        res.render('home')
+    }
 
-    //GET /getall
+    //GET /account
     getAll(req, res) {
         collection.find({}, function(err, collections) {
             if(!err) res.json(collections);
             else res.status(400).json({ error: 'Fail to get account list'});
         });
     }
-    
+
+    //GET /account/:id
+    async getOne(req,res) {
+        try{
+            const data = await collection.findById(req.params.id)
+            res.json(data)
+        }
+        catch(error){
+            res.status(400).json({message: "Account does not exist"})
+        }
+    }
+
+    //GET /change: change password
+    changeGet(req, res) {
+        res.render('changePassword');
+    }
+
+    //POST /change: change password
+    async changePost(req, res) {
+        try{
+            if(!req.body.password) return res.status(400).json({ message: "Empty current password" })
+
+            if(!req.body.newpass) return res.status(400).json({ message: "Empty new password" })
+            
+            const user = await collection.findOne({username: req.body.username}).lean()
+            
+            if(!user) return res.status(400).json({ message: "Username does not exist!" })
+            
+            if(user.password !== req.body.password) return res.status(400).json({ message: "Wrong password" })
+            
+            await collection.findByIdAndUpdate(
+                user._id, {
+                    password: req.body.newpass,
+                }
+            )
+            res.status(200).json({message: "update success"})
+
+        }
+        catch (error) {
+            res.status(400).json({ message: "error" })
+        }
+    }
+
     //GET '/update'
     updateInfoGet(req, res) {
         res.render('updateInfo');
@@ -21,22 +69,23 @@ class SiteController {
     //POST '/update'
     async updateInfoPost(req, res) {
         try{
-            const check = await collection.findOne({username: req.body.username}).lean()
-    
-            if(!check) res.send("Username does not exist")
+            const user = await collection.findOne({username: req.body.username}).lean()
+            
+            if(!user) res.status(400).json({ message: "Username does not exist!" })
             else {
-                console.log(check.id)
-                res.render('home')
+                await collection.findByIdAndUpdate(
+                    user._id, {
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        email: req.body.email,
+                      }
+                )
+                res.status(200).json({message: "update success"})
             }
         }
         catch (error) {
-            res.send("Wrong detail")
+            res.status(400).json({ message: "Email already in used!" })
         }
-    }
-
-    //GET '/'
-    home(req, res, next) {
-        res.render('home')
     }
 
     //GET /login
@@ -100,13 +149,6 @@ class SiteController {
             }
         }
     }
-
-    //GET /change : change password
-    changeGet(req, res) {
-        res.render('changePassword');
-    }
-
-
 }
 
 module.exports = new SiteController;
