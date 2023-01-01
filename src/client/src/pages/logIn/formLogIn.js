@@ -36,9 +36,8 @@ const formLogIn = () => {
                     class="bg-amber-50 py-2 w-full mt-2"/>
                 </div>
                 <div class="flex text-xs underline-offset-2 mt-4 ">
-                    <a href='/forgotpassword' >Quên mật khẩu</a>
-                    <p >/</p>
-                    <a href='/signup'>Đăng ký</a>
+                    
+                    <a href='/signup'> Đăng ký tài khoản</a>
                 </div>
               
                 
