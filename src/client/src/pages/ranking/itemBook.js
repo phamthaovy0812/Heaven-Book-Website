@@ -7,12 +7,12 @@ import './ranking.css';
 export const ItemBook=({value})=>{
     return(
         <>
-            <img src={value.bookAvatar} className="w-72 h-64"/>
+            <img src={value.image} className="w-72 h-64"/>
             <div class="bg-primary-600 h-0.5 w-72 my-5"></div>
-            <h1 className='font-semibold text-2xl text-primary'>{value.nameBook}</h1>
+            <h1 className='font-semibold text-2xl text-primary'>{value.title}</h1>
             <div className='flex items-stretch my-2 '>
                 <img src={IconAuthor} className="w-6 h-6"/>
-                <h3 className='text-slate-400 text-lg ml-3 '>{value.nameAuthor}</h3> 
+                <h3 className='text-slate-400 text-lg ml-3 '>{value.author}</h3> 
             </div>
        
             <div className='flex w-72 justify-around px-8 mb-2 items-center '>

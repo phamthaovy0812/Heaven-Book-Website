@@ -13,7 +13,7 @@ import FullPost from "../pages/fullpost/fullrv"
 import EditProfile from "../pages/profile/editprofile"
 import AfterSearch from "../pages/search/aftersearch";
 import ForgotPassword from "../pages/forgotpassword/forgotPassword";
-
+import CreatePost from "../pages/post/createPost";
 
 const mainRoutes = () => {
   return (
@@ -25,6 +25,7 @@ const mainRoutes = () => {
           <Route path="SignUp" element={<SignUp />} />
           <Route path="Ranking" element={<Ranking />} />
           <Route path="Censor" element={<Censor />} />
+          <Route path="post" element={<CreatePost />} />
 
           <Route path="Error" element={<Error />} />
           <Route path="LogIn" element={<LogIn />} />

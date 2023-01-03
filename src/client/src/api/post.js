@@ -26,6 +26,16 @@ const updatePost=(data)=>{
     })
 }
 
+const createPost=(data)=>{
+    axios.post(`${api}${post}`,data)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log("err : ",err)
+    })
+}
+
 const deletePost=(id)=>{
     console.log("id",id)
     axios.delete(`${api}${post}${id}`)
@@ -38,4 +48,4 @@ const deletePost=(id)=>{
 }
 
 
-export { getAllPost, updatePost, deletePost };
+export { getAllPost, updatePost, deletePost, createPost };
