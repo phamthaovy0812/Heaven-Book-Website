@@ -12,8 +12,8 @@ const searchBarCategory = () => {
 					<input class="text-base text-gray-400 flex-grow outline-none px-2 " type="text" placeholder="Nhập tên sách cần tìm kiếm" />
 					<div class="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
 						<select id="Com" class="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg ">
-                            <option value="com" selected>Tiểu thuyết</option>
-                            <option value="net">Truyện tranh</option>
+                            <option value="com" selected>Self-help</option>
+                            <option value="net">Tiểu thuyết</option>
                             <option value="org">chinh thám</option>
                         </select>
 						<button class="bg-primary text-white text-base rounded-lg px-4 py-2 font-thin">Search</button>

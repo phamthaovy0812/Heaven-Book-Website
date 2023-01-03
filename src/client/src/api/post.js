@@ -14,14 +14,28 @@ const getAllPost=(setResult)=>{
     })
 }
 
-// const createPost=(data)=>{
-//     axios.post(`${api}${postApi}`,data)
-//     .then((res)=>{
-//         console.log(res)
-//     })
-//     .catch((err)=>{
-//         console.log("err : ",err)
-//     })
-// }
 
-export { getAllPost };
+const updatePost=(data)=>{
+    console.log(`${api}${post}${data._id}`)
+    axios.put(`${api}${post}${data._id}`,data)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log("err : ",err)
+    })
+}
+
+const deletePost=(id)=>{
+    console.log("id",id)
+    axios.delete(`${api}${post}${id}`)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log("err : ",err)
+    })
+}
+
+
+export { getAllPost, updatePost, deletePost };

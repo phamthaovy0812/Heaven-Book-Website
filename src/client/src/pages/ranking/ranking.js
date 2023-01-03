@@ -31,8 +31,8 @@ const Ranking = () => {
                                 <FirstItemBook value={value}/>
                                 :    
                                  <div className='flex flex-col w-1/3 justify-center items-center my-10' key={index}>
-                                //     <ItemBook value={value}/>
-                                // </div>
+                                     <ItemBook value={value}/>
+                                 </div>
                             } 
                         </>
                     )

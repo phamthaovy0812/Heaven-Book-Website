@@ -1,4 +1,4 @@
 import { createAccount } from './account';
-import {  getAllPost } from './post';
+import {  getAllPost, updatePost, deletePost } from './post';
 
-export { createAccount, getAllPost }
+export { createAccount, getAllPost, updatePost, deletePost }

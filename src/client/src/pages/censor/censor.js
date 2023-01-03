@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchBarCategory from "../../components/searchBarCategory";
 import ListBook from "./listBook";
 import Header from '../../layout/header/header';
 import Footer from '../../layout/footer/footer';
+import { getAllPost } from "../../api/main";
 
 const Censor=()=>{
     const [displayPage, setDisplayPage] = useState(0);
-    
+    const [ dataListBook, setDataListBook ] = useState(null);
+   
+    useEffect(()=>{
+        getAllPost(setDataListBook);
+       
+    },[])
     return(
         <div>
             <Header/>
@@ -29,10 +35,9 @@ const Censor=()=>{
                         Đã kiểm duyệt
                     </button>
                 </div>
+                
                 {
-                  
-                        <ListBook status={displayPage}/>
-                   
+                    <ListBook status={displayPage} />  
                 }
                 <Footer/>
         </div>
