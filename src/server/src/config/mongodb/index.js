@@ -7,7 +7,7 @@ const url2= 'mongodb+srv://jiji:vy123456789@cluster0.3lmkjug.mongodb.net/?retryW
 
 async function connect(){
     try{
-        await mongoose.connect(url1, {
+        await mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

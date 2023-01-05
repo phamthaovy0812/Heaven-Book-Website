@@ -6,6 +6,8 @@ const updateInfo = "/updateInfo";
 const login = "/login";
 const signup = "/signup";
 
+
+
 const post = "/post/";
 const postTitle = "/title";
 

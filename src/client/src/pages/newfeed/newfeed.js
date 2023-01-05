@@ -1,12 +1,22 @@
- import  React from 'react'
+ import  React, { useEffect, useState } from 'react'
  import Header from "../../layout/header/header"
  import Footer from "../../layout/footer/footer"
 import './newfeed.css'
-import ListBook from './book.json';
+
 import Item  from './item';
+import { getAllPost } from '../../api/main';
+
 
 
 const NewFeed = () => {
+    const [ dataListBook, setDataListBook ] = useState(null);
+
+    useEffect(()=>{
+        getAllPost(setDataListBook);
+       
+    },[])
+    console.log(dataListBook)
+
 return (
     <div>
         <Header/>
@@ -14,7 +24,7 @@ return (
         <h1 class='hdtext'>NEWFEED</h1>
         <div className='flex flex-wrap mx-10 '>
             {
-                ListBook && ListBook.map((value,index)=>{
+                dataListBook && dataListBook.map((value,index)=>{
                     return (
                         <>
                             {
@@ -28,11 +38,6 @@ return (
             }
         </div>
         
-        <div class='nf_flex'>
-            <button class='nf_btn'>Trang trước</button>
-            <button class='nf_btn'>Trang sau</button>
-            
-        </div>
         <Footer/>
     </div>
 )

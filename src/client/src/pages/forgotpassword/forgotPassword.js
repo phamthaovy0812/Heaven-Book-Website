@@ -12,7 +12,7 @@ const ForgotPassword = () => {
              
                 <FormForgotPassword/>
                
-                <a href='/login'> <button class="bg-primary mt-10  text-center w-1/4 mb-16 ml-44 py-2 rounded-md font-bold text-lg text-white">Cập nhật</button> </a>
+              
             </div>
 
         </div>

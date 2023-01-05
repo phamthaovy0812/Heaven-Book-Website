@@ -37,7 +37,7 @@ const FormLogIn = () => {
         <form class=" px-28 ">
             <div >
                 <div>
-                    <label htmlFor="username" class="text-secondary-gray text-lg font-semibold ">Tài khoảng</label>
+                    <label htmlFor="username" class="text-secondary-gray text-lg font-semibold ">Tài khoản</label>
                     <input 
                     type="text" 
                     name="username" 

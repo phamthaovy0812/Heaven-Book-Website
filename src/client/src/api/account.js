@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { api, account,signup, login } from '../constant/api';
+import { api, account,signup, login, changePassword,updateInfo } from '../constant/api';
 
 // const getAllAccount=()=>{
 //     axios.get(`${api}${accountApi}`)
@@ -35,4 +35,28 @@ const loginAccount=(data, setRes)=>{
     })
 }
 
-export {  createAccount, loginAccount };
+const changePassAccount=(data)=>{
+    console.log(data)
+
+    axios.post(`${api}${account}${changePassword}`,data)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log("err : ",err)
+    })
+}
+
+const updateInfoAccount=(data)=>{
+    console.log(data)
+    axios.post(`${api}${account}${updateInfo}`,data)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log("err : ",err)
+    })
+
+}
+
+export {  createAccount, loginAccount, changePassAccount,updateInfoAccount };
