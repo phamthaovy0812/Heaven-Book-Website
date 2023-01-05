@@ -67,29 +67,29 @@ class SiteController {
     }
 
     //POST '/update'
-    async updateInfoPost(req, res) {
-        try{
-            if(!req.body.username) return res.status(400).json({ message: "Empty username!" })
+    // async updateInfoPost(req, res) {
+    //     try{
+    //         if(!req.body.username) return res.status(400).json({ message: "Empty username!" })
 
-            const user = await collection.findOne({username: req.body.username}).lean()
+    //         const user = await collection.findOne({username: req.body.username}).lean()
             
-            if(!user) res.status(400).json({ message: "Username does not exist!" })
-            else {
-                await collection.findByIdAndUpdate(
-                    user._id, {
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
-                        email: req.body.email,
-                      }
-                )
-                res.status(200).json({message: "update success"})
-            }
+    //         if(!user) res.status(400).json({ message: "Username does not exist!" })
+    //         else {
+    //             await collection.findByIdAndUpdate(
+    //                 user._id, {
+    //                     firstName: req.body.firstName,
+    //                     lastName: req.body.lastName,
+    //                     email: req.body.email,
+    //                   }
+    //             )
+    //             res.status(200).json({message: "update success"})
+    //         }
 
-        }
-        catch (error) {
-            res.status(400).json({ message: "Email already in used!" })
-        }
-    }
+    //     }
+    //     catch (error) {
+    //         res.status(400).json({ message: "Email already in used!" })
+    //     }
+    // }
 
     //GET /login
     loginGet(req, res) {

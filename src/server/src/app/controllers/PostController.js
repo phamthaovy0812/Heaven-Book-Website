@@ -75,13 +75,11 @@ const createPost = async (req, res) => {
 const updatePost = async (req, res) => {
   try {
     const result = await Post.findByIdAndUpdate(req.params.id, {
-      title: req.body.title,
       status: req.body.status,
-      img: req.body.img,
-      author: req.body.author,
-      category: req.body.category,
       description: req.body.description,
       content: req.body.content,
+      listLike: req.body.listLike,
+      listDislike: req.body.listDislike,
     });
 
     res.send(result);

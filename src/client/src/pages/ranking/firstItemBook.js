@@ -7,7 +7,7 @@ import IconAuthor from '../../assets/icon/author.svg';
 import { ItemBook } from './itemBook';
 import './ranking.css';
 
-export const FirstItemBook=({value})=>{
+export const FirstItemBook=({value, refresh})=>{
     return (
         <>
           <div className='text-primary font-bold  text-2xl text-center mt-10 mb-4 pl-24 underline'>Review hay nhất </div>
