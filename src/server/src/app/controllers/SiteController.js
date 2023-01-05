@@ -69,6 +69,8 @@ class SiteController {
     //POST '/update'
     async updateInfoPost(req, res) {
         try{
+            if(!req.body.username) return res.status(400).json({ message: "Empty username!" })
+
             const user = await collection.findOne({username: req.body.username}).lean()
             
             if(!user) res.status(400).json({ message: "Username does not exist!" })
@@ -82,6 +84,7 @@ class SiteController {
                 )
                 res.status(200).json({message: "update success"})
             }
+
         }
         catch (error) {
             res.status(400).json({ message: "Email already in used!" })
