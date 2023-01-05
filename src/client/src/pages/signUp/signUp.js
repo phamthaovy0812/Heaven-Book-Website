@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import FormSignUp from "./formSignUp";
 import BannerSignUp from "./bannerSignUp";
 import { createAccount } from '../../api/main';
-
+import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const [onChange, setOnChange ] = useState({
     firstName:"",
@@ -12,7 +12,12 @@ const SignUp = () => {
     email : ""
 });  
 
-const handleSubmit =()=> createAccount(onChange);
+const nav = useNavigate();
+
+const handleSubmit =()=> {
+  createAccount(onChange)
+  nav("/login");
+};
 
   return (
     <div class="bg-white flex  ">

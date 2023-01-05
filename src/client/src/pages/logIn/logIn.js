@@ -1,10 +1,11 @@
-import React from 'react';
+import React,{ useContext } from 'react';
 import FormLogIn from "./formLogIn";
-import FormLog from './formloginver2';
 import BannerLogIn from "./bannerLogIn";
 
 
-const logIn = () => {
+const Login = () => {
+   
+   
     return (
         <div class="bg-slate-100 flex">
             <BannerLogIn/>
@@ -18,4 +19,4 @@ const logIn = () => {
     );
 };
 
-export default logIn;
+export default Login;

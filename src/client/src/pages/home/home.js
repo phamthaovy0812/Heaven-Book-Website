@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import About from './about';
 import Header from '../../layout/header/header';
 import Footer from '../../layout/footer/footer';
-const home = () => {
+
+
+const Home = () => {
+   
+    
     return (
         <div>
             <Header/>
@@ -13,4 +17,4 @@ const home = () => {
     );
 };
 
-export default home;
+export default Home;
