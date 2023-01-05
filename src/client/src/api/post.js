@@ -7,7 +7,6 @@ const getAllPost=(setResult)=>{
     .then((res)=>{
 
         setResult(res.data)
-        console.log("->",res.data)
     })
     .catch((err)=>{
         console.log("err : ",err)
@@ -16,7 +15,7 @@ const getAllPost=(setResult)=>{
 
 
 const updatePost=(data)=>{
-    console.log(`${api}${post}${data._id}`)
+    console.log("-->>>",data.listLike)
     axios.put(`${api}${post}${data._id}`,data)
     .then((res)=>{
         console.log(res)

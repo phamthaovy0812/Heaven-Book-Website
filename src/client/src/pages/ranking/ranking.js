@@ -9,13 +9,14 @@ import { getAllPost } from '../../api/main';
 const Ranking = () => {
 
     const [ dataListBook, setDataListBook ] = useState(null);
-
+    const [ refresh, setRefresh ] = useState(true)
     useEffect(()=>{
         getAllPost(setDataListBook);
        
-    },[])
+    },[refresh])
   
-    console.log(dataListBook)
+    const REFRESH ={ refresh, setRefresh };
+
     return (
         <div className=''>
             <Header/>
@@ -28,10 +29,10 @@ const Ranking = () => {
                         <>
                             {
                                  index===0 ?
-                                <FirstItemBook value={value}/>
+                                <FirstItemBook value={value} refresh = { REFRESH }/>
                                 :    
                                  <div className='flex flex-col w-1/3 justify-center items-center my-10' key={index}>
-                                     <ItemBook value={value}/>
+                                     <ItemBook value={value} refresh = { REFRESH }/>
                                  </div>
                             } 
                         </>
