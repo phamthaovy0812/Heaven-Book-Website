@@ -34,6 +34,11 @@ const Header = () => {
                         <li className='itemBar' class='hd_li'>
                             <Link to="/search">SEARCH</Link>
                         </li>
+                        {
+                            account.auth.isAdmin && <li className='itemBar' class='hd_li'>
+                                <Link to="/censor">CENSOR</Link>
+                            </li>
+                        }
                         <li className='itemBar' class='hd_li'>
                             <Link to="/profile">PROFILE</Link>
                         </li>

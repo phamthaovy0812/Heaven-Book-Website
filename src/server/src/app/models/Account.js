@@ -13,6 +13,10 @@ const Account = new Schema({
   email: {type: String, require: true, unique: true},
   listIdPosted: {type: Array},
   listPostReact: {type: Array},
+  isAdmin:{
+    type:Boolean,
+    default : false
+  }
 }, {
   timestamps: true,
 });

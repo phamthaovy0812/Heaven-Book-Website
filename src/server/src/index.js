@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Connect DB
 db.connect();
-
+app.use(cors({origin: true, credentials: true}));
 //Middleware
 app.use(
     express.urlencoded({
@@ -24,7 +24,7 @@ app.use(
     }),
 );
 app.use(express.json());
-app.use(cors())
+
 //HTTP logger
 app.use(morgan('combined'));
 //PUT method

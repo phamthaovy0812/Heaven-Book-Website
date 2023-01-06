@@ -29,6 +29,8 @@ const FormLogIn = () => {
                 ["lastName"]:res.data.check.lastName,
                 ["email"]:res.data.check.email,
                 ["listIdPosted"]:res.data.check.listIdPosted,
+                ["listPostReact"]:res.data.check.listPostReact,
+                ["isAdmin"]:res.data.check.isAdmin
             });
         nav("/");
     }

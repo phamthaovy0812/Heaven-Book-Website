@@ -11,6 +11,8 @@ export const AuthProvider=({children}) => {
         lastName: "",
         email: "",
         listIdPosted: [],
+        listPostReact: [ ],
+        isAdmin:""
       });
     return (
         <AuthContext.Provider value ={{auth,setAuth}}>

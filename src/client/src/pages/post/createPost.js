@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import Header from "../../layout/header/header";
 import Footer from "../../layout/footer/footer";
-import { createPost } from '../../api/main';
+import { createPost, updateInfoAccount } from '../../api/main';
+import AuthContext  from '../../context/AuthProvider';
+
 
 const InputBar = ({name,title, handleOnChange}) => {
   return (
@@ -80,7 +82,6 @@ const Upload =({ name, title, setOnChangeText, onChangeText })=>{
                         </div>
                     
                         <input id="dropzone-file" type="file" class="hidden" onChange={(event) => {
-                            console.log(event.target.files[0]);
                             getBase64(event.target.files[0])
                         }} />
                 </label>
@@ -90,10 +91,12 @@ const Upload =({ name, title, setOnChangeText, onChangeText })=>{
 }
 const CreatePost = () => {
     const [ displayErr, setDisplayErr ] = useState(false);
+    const account = useContext( AuthContext);
+    const [ res, setRes ] = useState(null);
     const [onChangeText, setOnChangeText ] = useState({
         status : false,
-        idReviewer: "63b2bbb4d35b39ccd8488b26",
-        Reviewername: "Tuan Kiet",
+        idReviewer: "63b7ab37b65cd5b2bc3113f7",
+        Reviewername: account.auth.firstName +account.auth.lastName,
         title:"",
         author :"",
         category:"",
@@ -107,10 +110,29 @@ const CreatePost = () => {
 
     const handleSubmit =() =>{
         if(onChangeText.title && onChangeText.author && onChangeText.category && onChangeText.content && onChangeText.img)
-            createPost(onChangeText);
+            createPost(onChangeText, setRes);
+            
     }
 
-    console.log("--->",onChangeText)
+    useEffect(()=>{
+        if(res)
+        {
+            const newListIdPost = account.auth.listIdPosted
+            newListIdPost.push(res._id);
+            account.setAuth(
+                {...account.auth,
+                    ["listIdPosted"]:newListIdPost,
+                });
+
+                const dataReq = {
+                    "_id" : account.auth._id,
+                    "username" : account.auth.username,
+                    "listIdPosted" :newListIdPost
+                }
+                
+                updateInfoAccount(dataReq)
+        }
+    },[res])
   return (
     <div>
         <Header />

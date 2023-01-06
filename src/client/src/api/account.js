@@ -51,7 +51,7 @@ const updateInfoAccount=(data)=>{
     console.log(data)
     axios.post(`${api}${account}${updateInfo}`,data)
     .then((res)=>{
-        console.log(res)
+        console.log("-+->",res)
     })
     .catch((err)=>{
         console.log("err : ",err)
