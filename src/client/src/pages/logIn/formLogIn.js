@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AuthContext  from '../../context/AuthProvider';
 
 const FormLogIn = () => {
+    const [ showErr, setShowErr ] = useState(true);
     const account = useContext( AuthContext);
     const [ textInput, setTexInput ] = useState({
         username :"",
@@ -39,6 +40,7 @@ const FormLogIn = () => {
         <form class=" px-28 ">
             <div >
                 <div>
+                    {/* <h1 className={" text-red-600 font-bold mb-4 text-xl " +( showErr ? "hidden" : "")}>Tài khoản hoặc mật khẩu không chính xác </h1> */}
                     <label htmlFor="username" class="text-secondary-gray text-lg font-semibold ">Tài khoản</label>
                     <input 
                     type="text" 

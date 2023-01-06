@@ -95,7 +95,7 @@ const CreatePost = () => {
     const [ res, setRes ] = useState(null);
     const [onChangeText, setOnChangeText ] = useState({
         status : false,
-        idReviewer: "63b7ab37b65cd5b2bc3113f7",
+        idReviewer: account.auth._id,
         Reviewername: account.auth.firstName +account.auth.lastName,
         title:"",
         author :"",
