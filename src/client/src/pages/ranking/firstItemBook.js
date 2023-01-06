@@ -64,9 +64,7 @@ export const FirstItemBook=({value, refresh})=>{
                         </div>
                     <h3 className='ml-4'>{value.content.substring(0, 400)}...</h3>
                     <div className='flex items-center justify-between'>
-                        <button className='bg-primary w-72 py-2 hover:bg-primary-600 cursor-pointer text-center text-white font-semibold '>
-                            Xem thêm
-                        </button>
+                       
                         <div className='flex w-72 justify-around px-8 mb-2 items-center '>
                             <button onClick={()=>handleLike()}>
                                 { 

@@ -39,8 +39,15 @@ const Ranking = () => {
                         <>
                             {
                                  index===0 ?
-                                 <div>
+                                 <div class='relative  item-center'>
+                                    <div class='btntop1  absolute'>
+                                        <button  className='bg-primary w-52 py-2 hover:bg-primary-600 cursor-pointer ' onClick={()=>changecontent(value)}>
+                                            <h2 className='text-center text-white font-semibold '>Xem thêm</h2>
+                                        </button>
+                                    </div>
+                                    
                                     <FirstItemBook value={value} refresh = { REFRESH }/>
+
                                  </div>
                                
                                 :    
