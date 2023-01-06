@@ -3,10 +3,7 @@ import './header.css'
 import AuthContext  from '../../context/AuthProvider';
 import { Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-=======
 import { useNavigate } from "react-router-dom";
->>>>>>> 6cc642588c3fd18b9feda7217d230cbc0bb2667f
 
 const Header = () => {
     const account = useContext( AuthContext);

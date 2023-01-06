@@ -10,7 +10,6 @@ const Home = () => {
     return (
         <div>
             <Header/>
-             <img alt="Thumbnail" src={require("../../assets/banner_home.png")} class="w-screen h-96" />
              <About/>
              <Footer/>
         </div>

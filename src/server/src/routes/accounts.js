@@ -8,7 +8,7 @@ const SiteController = require("../app/controllers/SiteController");
 router.get("/", SiteController.getAll);
 router.get("/:id", SiteController.getOne);
 router.post("/changePassword", SiteController.changePost);
-// router.post("/updateInfo", SiteController.updateInfoPost);
+//router.post("/updateInfo", SiteController.updateInfoPost);
 
 router.post("/login", SiteController.loginPost);
 router.post("/signup", SiteController.signupPost);

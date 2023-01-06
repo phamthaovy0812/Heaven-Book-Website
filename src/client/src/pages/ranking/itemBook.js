@@ -78,9 +78,7 @@ export const ItemBook=({value, refresh})=>{
                     <h4 className='text-center'>{value.listDislike.length}</h4>
                 </button>
             </div>
-            <div className='bg-primary w-52 py-2 hover:bg-primary-600 cursor-pointer'>
-                <h2 className='text-center text-white font-semibold '>Xem thêm</h2>
-            </div>
+            
         </>
     )
 }

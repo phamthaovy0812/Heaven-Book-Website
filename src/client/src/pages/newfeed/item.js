@@ -1,11 +1,52 @@
-import React,{useState} from 'react';
+import React,{useContext} from 'react';
 import IconLike from '../../assets/icon/like.svg';
 import IconDisLike from '../../assets/icon/dislike.svg';
 import IconAuthor from '../../assets/icon/author.svg';
+import  IconLikeChecked from '../../assets/icon/likeChecked.svg';
+import  IconDisLikeChecked from '../../assets/icon/dislikeChecked.svg';
 import './newfeed.css';
+import { updatePost } from "../../api/main";
+import AuthContext  from '../../context/AuthProvider';
 //import Modal from './modal';
 
-export const Item=({value})=>{
+export const Item=({value, refresh})=>{
+    const account = useContext( AuthContext);
+    
+    function removeItem(arr, item){
+        return arr.filter(f => f !== item)
+       }
+       var newListLike = value.listLike;
+       var newListDislike = value.listDislike;
+        const handleLike=()=>{
+            value.listLike.includes(account.auth._id) ? newListLike= removeItem(newListLike,account.auth._id ) : newListLike.push(account.auth._id);
+            if( value.listDislike.includes(account.auth._id))
+            newListDislike = removeItem(newListDislike,account.auth._id )
+            updatePost( 
+                {
+                    "_id": value._id,
+                    "listLike": newListLike,
+                    "listDislike": newListDislike
+                }
+            );
+            refresh.setRefresh(!refresh.refresh);
+        }
+    
+        const handleDislike = () =>{
+            value.listDislike.includes(account.auth._id) ? newListDislike= removeItem(newListDislike,account.auth._id ) : newListDislike.push(account.auth._id);
+            if( value.listLike.includes(account.auth._id) )
+                newListLike = removeItem(newListLike,account.auth._id )  ;
+            
+            updatePost(
+                { 
+                    "_id": value._id,
+                    "listLike": newListLike,
+                    "listDislike": newListDislike
+                }
+            );
+            refresh.setRefresh(!refresh.refresh);
+    }
+ 
+
   
     return(
         <>
@@ -18,50 +59,29 @@ export const Item=({value})=>{
             </div>
        
             <div className='flex w-72 justify-around px-8 mb-2 items-center '>
-                <div className=''>
-                    <img src={IconLike} alt="React Logo" className='w-10 h-10 cursor-pointer'/>
+                <button onClick={()=>handleLike()}>
+                    { 
+                    value.listLike.includes(account.auth._id) ?
+                    <img src={IconLikeChecked} alt="React Logo" className='w-10 h-10 cursor-pointer'/>
+                    :
+                        <img src={IconLike} alt="React Logo" className='w-10 h-10 cursor-pointer'/>
+                    }
                     <h4 className='text-center'>{value.listLike.length}</h4>
-                </div>
+                </button>
                
-                <div >
-                    <img src={IconDisLike} alt="React Logo" className='w-10 h-10 cursor-pointer' />
-                    <h4 className='text-center'>{value.listDislike.length}</h4>
-                </div>
-            </div>
-            <button  className='bg-primary w-52 py-2 hover:bg-primary-600 cursor-pointer' >
-                <h2 className='text-center text-white font-semibold '>Xem thêm</h2>
-            </button>
-
-            <div className='modal-container relative h-[100vh]'>
-                <div className='bg-modal bg-opacity-30 bg-black absolute top-0 bottom-0 right-0 left-0'>
-                    <div className='modal w-[30vw] p-9 bg-white'>
-                        <div>Tên sách: {value.title}</div>
-                        <div>Author: {value.author}</div>
-                        <div class="flex">
-                            <img src={IconLike} alt="React Logo" className='w-10 h-10 cursor-pointer' />
-                            <div>{value.listLike.length}</div>
-                        </div>
-
-                        <div class="flex">
+                <button onClick={ ()=> handleDislike() }>
+                    {
+                        value.listDislike.includes(account.auth._id) ?
+                        <img src={IconDisLikeChecked} alt="React Logo" className='w-10 h-10 cursor-pointer' />
+                        :
                         <img src={IconDisLike} alt="React Logo" className='w-10 h-10 cursor-pointer' />
-                            <div>{value.listDislike.length}</div>
-                        </div>
-
-                        <div class='flex'>
-                            <div>{value.content}</div>
-                            <div>{value.image}</div>
-                        </div>
-                        
-                    </div>
-                </div>
+                    }
+                    <h4 className='text-center'>{value.listDislike.length}</h4>
+                </button>
             </div>
 
-
-
-
-
-            
         </>
+        
     )
 }
 export default Item
