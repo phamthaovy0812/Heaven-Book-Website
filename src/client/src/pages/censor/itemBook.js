@@ -47,9 +47,7 @@ function ItemBook({valueBook, setRefresh, refresh}) {
                     <h2 className='text-center text-primary font-semibold  '>Xóa</h2>
                 </button>
             </div>
-            <button className='border-primary border-2 mt-5  py-2 cursor-pointer w-full '>
-                    <h2 className='text-center text-primary font-semibold  '>Xem chi tiết</h2>
-                </button>
+        
             </div>
     );
 }
