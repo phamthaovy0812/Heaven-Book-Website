@@ -12,11 +12,12 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     height: 40px;
-    width: 600px;
+    width: 750px;
     background: #F8F7F4;
     border: 2px solid #FF6C1A;
-    border-radius: 5px;
-  
+    border-radius: 10px;
+    margin-left: 20px;
+    padding-left: 50px;
 }
 .s_btn{
     height: 40px;

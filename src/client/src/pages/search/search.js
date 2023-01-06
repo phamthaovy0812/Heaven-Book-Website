@@ -6,7 +6,8 @@ import Footer from "../../layout/footer/footer"
 // import Item  from '../newfeed/item';
 import Item  from '../newfeed/item';
 import { getAllPost } from '../../api/main';
-import '../newfeed/newfeed.css'
+import '../newfeed/newfeed.css';
+// import {SearchIcon} from "@heroicons/vue/outline";
 
 
 const Search = () => {
@@ -27,16 +28,41 @@ const Search = () => {
         setpopupcontent([value]);
         setpopuptogle(!popuptogle);
     }
-    const handleSearch =async(e) =>{
-        e.preventDefault();
-    }
+
+
+    // const state={
+    //     post:posts,
+    //     postcopy:[]
+    // }
+    // const handleSearch =async(e) =>{
+    //     e.preventDefault();
+    //     console.log(e.target.value);
+    //     let postcopy;
+    //     postcopy=this.state.post.filter((value)=>{
+    //         if(searchTitle==="")
+    //         {
+    //             return;
+    //         }else if ( value.title.toLowerCase().includes(searchTitle.toLowerCase()))
+    //         {
+    //             return value;
+    //         }
+
+    //     })
+
+
+
+    // }
+    //  <button class='s_btn' >Search</button> -- day la cai button search 
 return (
     <div>
         <Header/>
         <div className='search'class='search'>
             <div class='s_text'>SEARCH</div>
-            <input class='s_input' name="search" onChange={(e)=> setSearchTitle(e.target.value)}></input>
-            <button class='s_btn' type='submit' onSubmit={handleSearch}>Search</button>
+            <div class='relative flex item-center'>
+                <img src={require("../../assets/search.png") }class='w-8 h-6 absolute ml-8'></img>
+                <input placeholder='Mời nhập tên sách bạn muốn tìm . . .' class='s_input' name="search" onChange={(e)=> setSearchTitle(e.target.value)}></input>   
+            </div>
+          
         </div>
         {loading ? (
             <h4>Loading ...</h4>
@@ -51,8 +77,6 @@ return (
                     {
                         return value;
                     }
-                     
-                
                 })
                 .map((item,index)=>{
                     return (
