@@ -16,7 +16,7 @@ const Censor=()=>{
     return(
         <div>
             <Header/>
-                <img alt="Thumbnail" src={require("../../assets/banner_ranking.png")} class="w-screen " />
+              
                 <h1 className='text-primary font-bold  text-3xl text-center my-10 underline'>KIỂM DUYỆT BÀI VIẾT</h1>
                 <div className="px-20">
                     <SearchBarCategory/>
