@@ -36,7 +36,12 @@ return (
         <h1 class='hdtext'>NEWFEED</h1>
         <div className='flex flex-wrap mx-10 '>
             {
-                dataListBook && dataListBook.map((value,index)=>{
+                dataListBook && dataListBook.filter((check)=>{
+                    if(check.status===true){
+                        return check;
+                    }
+                })
+                .map((value,index)=>{
                     return (
                         <>
                             {

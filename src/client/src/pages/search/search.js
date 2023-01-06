@@ -27,13 +27,16 @@ const Search = () => {
         setpopupcontent([value]);
         setpopuptogle(!popuptogle);
     }
+    const handleSearch =async(e) =>{
+        e.preventDefault();
+    }
 return (
     <div>
         <Header/>
         <div className='search'class='search'>
             <div class='s_text'>SEARCH</div>
             <input class='s_input' name="search" onChange={(e)=> setSearchTitle(e.target.value)}></input>
-            <button class='s_btn' >Search</button>
+            <button class='s_btn' type='submit' onSubmit={handleSearch}>Search</button>
         </div>
         {loading ? (
             <h4>Loading ...</h4>

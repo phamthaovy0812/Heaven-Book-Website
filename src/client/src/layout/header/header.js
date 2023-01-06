@@ -12,7 +12,7 @@ const Header = () => {
         <section>
             <header class='header'>
                 < div className='logo' class='flex'>              
-                    <img class="logo" src={require("../../assets/logo.png") }></img>
+                    <img class="logo " src={require("../../assets/logo.png") }></img>
                     <h1>Heaven Of Books</h1>              
                 </div>
 
