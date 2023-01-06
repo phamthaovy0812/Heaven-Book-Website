@@ -33,7 +33,7 @@ return (
         <div className='search'class='search'>
             <div class='s_text'>SEARCH</div>
             <input class='s_input' name="search" onChange={(e)=> setSearchTitle(e.target.value)}></input>
-
+            <button class='s_btn' >Search</button>
         </div>
         {loading ? (
             <h4>Loading ...</h4>

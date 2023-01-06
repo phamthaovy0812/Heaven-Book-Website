@@ -4,6 +4,8 @@
 import './newfeed.css'
 import {ItemBook}  from '../ranking/itemBook';
 import { getAllPost } from '../../api/main';
+import IconLike from '../../assets/icon/like.svg';
+import IconDisLike from '../../assets/icon/dislike.svg';
 
 
 
@@ -56,17 +58,32 @@ return (
             <div className='pop_up_container'  onClick={changecontent}>
                 <div className='pop_up_body'>
                     <div className='pop_up_header'>
-                        <button onClick={changecontent}>x</button>
+                        <button onClick={changecontent}>X</button>
                     </div>
+
                     <div className='pop_up_content'>
                         {popupcontent.map((pop)=>{
                             return (
-                                <div>
-                                    <div class='pop_up_title'>Book's name: {pop.title}</div>
-                                    <div class='pop_up_author'>Author: {pop.author} </div>
-                                    <div class='pop_up_desc'>{pop.content}</div>
-                        
+                                <div class="flex ">
+                                    <div class='w-4/6'>
+                                        <div class='pop_up_title'>Book's name: {pop.title}</div>
+                                        <div class='pop_up_author'>Author: {pop.author} </div>
+                                        <div class='pop_up_author'>Category: {pop.category}</div>
+                                        <div class='flex mb-4 mt-2'>
+                                                <img src={IconLike} alt="React Logo" className='w-10 h-10 cursor-pointer ml-4 mr-2'/>
+                                                <h4 className='text-center text-2xl text-orange-700 font-medium'>{pop.listLike.length}</h4>
+                                                <img src={IconDisLike} alt="React Logo" className='w-10 h-10 cursor-pointer ml-4 mr-2' />
+                                                <h4 className='text-center text-2xl text-orange-700 font-medium'>{pop.listDislike.length}</h4>
+                                        </div>
+                                        <div class='pop_up_desc'>{pop.content}</div>
+                                    </div>
+                                
+                                    <div class='pop_up_img'>
+                                        <img src={pop.img}></img>
+                                    </div>
+                                 
                                 </div>
+
                             )
                         })}
 
