@@ -72,6 +72,19 @@
     width: 200px;
     height: 200px;
     margin-left: 50px;
-    margin-top: 150px;
+    margin-top: 100px;
    
+}
+.mess_pop_up_body{
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 15px;
+    height: 200px;
+    width: 300px;
+    font-size: larger;
+    color: #FF6C1A;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+
 }

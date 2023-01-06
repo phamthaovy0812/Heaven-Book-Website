@@ -61,7 +61,8 @@ const Upload =({ name, title, setOnChangeText, onChangeText })=>{
         };
         });
     };
-    
+
+   
     return(
         <div className="w-2/4 mb-6">
             <h1 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{title}</h1>
@@ -108,11 +109,20 @@ const CreatePost = () => {
         setOnChangeText({ ...onChangeText, [evt.target.name]: evt.target.value }); 
       };
 
+    const [popuptogle,setpopuptogle]=useState(false);
+ 
+
     const handleSubmit =() =>{
         if(onChangeText.title && onChangeText.author && onChangeText.category && onChangeText.content && onChangeText.img)
+        {
             createPost(onChangeText, setRes);
-            
+            setpopuptogle(!popuptogle);
+        }    
     }
+    const changecontent=()=>{
+        setpopuptogle(!popuptogle);
+    }
+
 
     useEffect(()=>{
         if(res)
@@ -133,6 +143,8 @@ const CreatePost = () => {
                 updateInfoAccount(dataReq)
         }
     },[res])
+
+
   return (
     <div>
         <Header />
@@ -150,6 +162,25 @@ const CreatePost = () => {
                 <h2 className='text-center text-white font-semibold '>Gửi bài review</h2>
             </button>
         </div>
+        {popuptogle&&
+            <div className='pop_up_container' onClick={changecontent}>
+                <div class='fatherf'>
+                    <div class='sonf'>
+                        <div  className='mess_pop_up_body'>
+                        <div  className='pop_up_header'>
+                            <button  onClick={changecontent}>X</button>
+                        </div>
+                        <div  className='pop_up_content'>
+                            <div>Cảm ơn bạn đã gửi bài review sách! Post của bạn đã gửi đến người kiểm duyệt. </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+               
+            </div>
+
+        }
         <Footer />
         
     </div>
