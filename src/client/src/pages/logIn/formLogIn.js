@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import AuthContext  from '../../context/AuthProvider';
 
 const FormLogIn = () => {
-    const [ showErr, setShowErr ] = useState(true);
     const account = useContext( AuthContext);
     const [ textInput, setTexInput ] = useState({
         username :"",
@@ -15,13 +14,17 @@ const FormLogIn = () => {
     const handleChangeText =( evt )=>{
         setTexInput({...textInput,   [ evt.target.name ] : evt.target.value } )
     }
-    
+    var showErr = false;
     const handleLogin =(event)=>{
         event.preventDefault()
         loginAccount(textInput,setRes);
     }
-    if(res && res.status==200){
-        account.setAuth(
+    // 
+    if(res && res.status==200 ){
+        const message = res.data.message;
+        if(message=="Login success!")
+        {  
+            account.setAuth(
             {...account.auth,
                 ["_id"]:res.data.check._id,
                 ["username"]:res.data.check.username,
@@ -33,14 +36,24 @@ const FormLogIn = () => {
                 ["listPostReact"]:res.data.check.listPostReact,
                 ["isAdmin"]:res.data.check.isAdmin
             });
-        nav("/");
+            nav("/");
+        }
+        else if(message=="Username does not exist!" || message=="Wrong password!")
+            showErr = true
     }
+    // else if( res && res.data.message && (res.data.message=="Wrong password!" || res.data.message=="Username does not exist!"))
+    // {
+    //     // setShowErr(true);
+    //     console.log("sai pass")
+    // }
 
     return (
         <form class=" px-28 ">
             <div >
                 <div>
-                    {/* <h1 className={" text-red-600 font-bold mb-4 text-xl " +( showErr ? "hidden" : "")}>Tài khoản hoặc mật khẩu không chính xác </h1> */}
+                    <h1 className={ "text-red-600 font-bold mb-4 text-lg" + (!showErr  ? " opacity-0" : "") }>
+                        Tài khoản hoặc mật khẩu không chính xác 
+                    </h1>
                     <label htmlFor="username" class="text-secondary-gray text-lg font-semibold ">Tài khoản</label>
                     <input 
                     type="text" 

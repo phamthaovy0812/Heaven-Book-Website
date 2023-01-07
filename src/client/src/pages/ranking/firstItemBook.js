@@ -1,13 +1,10 @@
 import React, {useContext} from 'react';
-import ListBook from './book.json';
 import IconLike from '../../assets/icon/like.svg';
 import IconDisLike from '../../assets/icon/dislike.svg';
-import IconAuthor from '../../assets/icon/author.svg';
 import  IconLikeChecked from '../../assets/icon/likeChecked.svg';
 import  IconDisLikeChecked from '../../assets/icon/dislikeChecked.svg';
 import { updatePost } from "../../api/main";
 import AuthContext  from '../../context/AuthProvider';
-import { ItemBook } from './itemBook';
 import './ranking.css';
 
 export const FirstItemBook=({value, refresh})=>{

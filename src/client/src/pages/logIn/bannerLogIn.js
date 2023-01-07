@@ -2,11 +2,11 @@ import React from 'react';
 
 const bannerLogIn = () => {
     return (      
-            <div class=" h-screen flex-1 bg-orange-600 bg-primary-600 flex flex-col justify-between px-32 ">
+            <div class=" h-screen flex bg-orange-600 bg-primary-600 flex flex-col justify-between w-3/5 ">
                 <h1 class="font-bold text-4xl text-white mx-4  text-center mt-6">WELCOME TO</h1>
-                <h1 class="font-bold text-3xl text-white mx-4  text-center mt-2 ">- HEAVEN OF BOOKS -</h1>
+                <h1 class="font-bold text-3xl text-white  text-center mt-2 ">- HEAVEN OF BOOKS -</h1>
                 <div>
-                    <img  src={require("../../assets/bg_log_in.png")} class="m-auto" />
+                    <img  src={require("../../assets/bg_log_in.png")}  />
                 </div>
                 <h4 class="font-pacifico  text-center text-lg italic mb-16" >“Good books, like good friends, are few and chosen; the more select, the more enjoyable.”</h4>
             </div>

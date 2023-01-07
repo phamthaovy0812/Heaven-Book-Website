@@ -102,13 +102,13 @@ class SiteController {
         try{
             const check = await collection.findOne({username: req.body.username}).lean()
             
-            if(!check) res.status(400).json({ message: "Username does not exist!" })
+            if(!check) res.status(200).json({ message: "Username does not exist!" })
             else {
                 console.log(req.body)
                 if(check.password === req.body.password) {
                     res.status(200).json({check, message: "Login success!"})
                 }
-                else res.status(400).json({ message: "Wrong password!" })
+                else res.status(200).json({ message: "Wrong password!" })
             }
         }
         catch (error) {
@@ -134,23 +134,26 @@ class SiteController {
             const data =  {
                 username,
                 password,
-                lastName,
+                lastName,   
                 firstName,
                 email
             }
             
-            const check = await collection.findOne({username: req.body.username}).lean()
-            
-            if(check) res.status(400).json({ message: "Username has been used!" })
+            const checkUsername = await collection.findOne({username: req.body.username}).lean()
+            const checkEmail = await collection.findOne({email: req.body.email}).lean()
+            if(checkUsername) 
+                res.status(200).json({ message: "Username has been used!" })
+            else if(checkEmail) 
+                res.status(200).json({ message: "Email has been used!" })
             else {
                 await collection.insertMany([data])
                 res.status(200).json({data, message: "Signup success!"})
             }
         }
         catch(error) {
-            if(error.code === 11000) {
-                res.status(400).json({message: "Email has been used!"})
-            }
+            // if(error.code === 11000) {
+                res.status(400).json({message: error})
+         //   }
         }
     }
 }

@@ -34,7 +34,7 @@ const Ranking = () => {
              <h1 className='text-primary font-bold  text-3xl text-center my-10 underline'>SÁCH BÌNH CHỌN HAY NHẤT</h1>
              <div className='flex flex-wrap mx-10 '>
              {
-                dataListBook && dataListBook.map((value,index)=>{
+                dataListBook && dataListBook.slice(0, 10).map((value,index)=>{
                     return (
                         <>
                             {

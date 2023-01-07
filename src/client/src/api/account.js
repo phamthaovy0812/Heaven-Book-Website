@@ -11,11 +11,12 @@ import { api, account,signup, login, changePassword,updateInfo } from '../consta
 //     })
 // }
 
-const createAccount=(data)=>{
+const createAccount=(data, setRes)=>{
     console.log(`${api}${account}${signup}`)
     axios.post(`${api}${account}${signup}`,data)
     .then((res)=>{
         console.log(res);
+        setRes(res)
     })
     .catch((err)=>{
         console.log("err : ",err)
@@ -31,6 +32,7 @@ const loginAccount=(data, setRes)=>{
         console.log(res);
     })
     .catch((err)=>{
+        setRes({"status":400})
         console.log("err : ",err)
     })
 }
